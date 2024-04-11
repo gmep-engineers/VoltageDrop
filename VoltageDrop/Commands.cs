@@ -3,6 +3,10 @@ using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.ApplicationServices;
 using System;
 using System.Collections.Generic;
+using Autodesk.AutoCAD.Windows;
+using System.Windows.Forms;
+using Application = Autodesk.AutoCAD.ApplicationServices.Application;
+using System.Windows.Forms.Integration;
 
 namespace VoltageDrop
 {
@@ -88,6 +92,29 @@ namespace VoltageDrop
       Application.ShowAlertDialog($"Resistance: {resistance:F3} ohms per 1000 feet");
 
       Application.ShowAlertDialog($"Voltage Drop: {voltageDrop:F2} volts ({voltageDropPercentage:F2}%)");
+    }
+
+    [CommandMethod("MyWPFUserControl")]
+    public void ShowWPFUserControl()
+    {
+      // Instantiate the Windows Form
+      VoltageDropForm myForm = new VoltageDropForm();
+
+      // Instantiate the WPF UserControl
+      VoltageDrop myWPFUserControl = new VoltageDrop();
+
+      // Create an ElementHost control
+      ElementHost host = new ElementHost
+      {
+        Dock = DockStyle.Fill, // Fill the host in the Windows Form
+        Child = myWPFUserControl // Set the WPF UserControl as the Child of the host
+      };
+
+      // Add the ElementHost to the Windows Form's Controls collection
+      myForm.Controls.Add(host);
+
+      // Show the form
+      Application.ShowModalDialog(myForm);
     }
 
     private double GetResistance(string wireType, double sizeOfWire)
