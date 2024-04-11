@@ -5,15 +5,16 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:VoltageDrop"
              mc:Ignorable="d"
-             d:DesignHeight="450"
-             d:DesignWidth="800">
+             d:DesignHeight="720"
+             d:DesignWidth="1280
+            ">
 
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Background"
-                    Value="#F5F5F5" />
+                    Value="#000814" />
             <Setter Property="Foreground"
-                    Value="Black" />
+                    Value="White" />
             <Setter Property="Padding"
                     Value="10" />
             <Setter Property="BorderThickness"
@@ -32,16 +33,152 @@
             </Setter>
         </Style>
 
-        <Style x:Key="GoogleFontStyle"
-               TargetType="TextBlock">
+        <Style TargetType="TextBox">
+            <Setter Property="Background"
+                    Value="#000814" />
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="Padding"
+                    Value="5" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="BorderBrush"
+                    Value="Gray" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="4">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Foreground"
+                    Value="White" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="Background"
+                    Value="Black" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ComboBox">
+                        <Border Background="#000814"
+                                BorderBrush="Gray"
+                                BorderThickness="1"
+                                CornerRadius="4">
+                            <Grid>
+                                <ToggleButton x:Name="ToggleButton"
+                                              Grid.Column="2"
+                                              Focusable="false"
+                                              ClickMode="Press"
+                                              Background="#000814"
+                                              Foreground="White"
+                                              IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <ToggleButton.Style>
+                                        <Style TargetType="ToggleButton">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ToggleButton">
+                                                        <Border x:Name="border"
+                                                                Background="{TemplateBinding Background}"
+                                                                BorderBrush="{TemplateBinding BorderBrush}"
+                                                                BorderThickness="{TemplateBinding BorderThickness}"
+                                                                SnapsToDevicePixels="True">
+                                                            <ContentPresenter x:Name="contentPresenter"
+                                                                              Focusable="False"
+                                                                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                                              Margin="{TemplateBinding Padding}"
+                                                                              RecognizesAccessKey="True"
+                                                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver"
+                                                                     Value="True">
+                                                                <Setter TargetName="border"
+                                                                        Property="Background"
+                                                                        Value="#252525" />
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ToggleButton.Style>
+                                </ToggleButton>
+                                <ContentPresenter Name="ContentSite"
+                                                  IsHitTestVisible="False"
+                                                  Content="{TemplateBinding SelectionBoxItem}"
+                                                  ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                                                  ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                                  Margin="3,3,23,3"
+                                                  VerticalAlignment="Center"
+                                                  HorizontalAlignment="Left" />
+                                <TextBox x:Name="PART_EditableTextBox"
+                                         Style="{StaticResource {x:Type TextBox}}"
+                                         HorizontalAlignment="Left"
+                                         VerticalAlignment="Center"
+                                         Margin="3,3,23,3"
+                                         Focusable="True"
+                                         Background="#000814"
+                                         Visibility="Hidden"
+                                         IsReadOnly="{TemplateBinding IsReadOnly}" />
+                                <Popup Name="Popup"
+                                       Placement="Bottom"
+                                       IsOpen="{TemplateBinding IsDropDownOpen}"
+                                       AllowsTransparency="True"
+                                       Focusable="False"
+                                       PopupAnimation="Slide">
+                                    <Grid Name="DropDown"
+                                          SnapsToDevicePixels="True"
+                                          MinWidth="{TemplateBinding ActualWidth}"
+                                          MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                        <Border x:Name="DropDownBorder"
+                                                Background="#000814"
+                                                BorderThickness="1"
+                                                BorderBrush="Gray" />
+                                        <ScrollViewer Margin="4,6,4,6"
+                                                      SnapsToDevicePixels="True">
+                                            <StackPanel IsItemsHost="True"
+                                                        KeyboardNavigation.DirectionalNavigation="Contained" />
+                                        </ScrollViewer>
+                                    </Grid>
+                                </Popup>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="TextBlock">
             <Setter Property="FontFamily"
                     Value="/Fonts/#Roboto" />
             <Setter Property="FontSize"
                     Value="16" />
+            <Setter Property="Foreground"
+                    Value="White" />
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontFamily"
+                    Value="/Fonts/#Roboto" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="Foreground"
+                    Value="White" />
         </Style>
     </UserControl.Resources>
 
-    <Grid Background="White">
+    <Grid Background="#000814">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
@@ -56,13 +193,13 @@
 
             <TextBlock Grid.Row="0"
                        Text="GMEP"
-                       Style="{StaticResource GoogleFontStyle}"
                        FontSize="32"
                        FontWeight="Bold"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center" />
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="1"
+                  Background="#000814">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
@@ -71,32 +208,46 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Grid.Row="0"
-                           Text="Subsection 1"
-                           Style="{StaticResource GoogleFontStyle}"
+                           Text="Voltage Drop"
                            HorizontalAlignment="Center"
-                           VerticalAlignment="Center" />
-
-                <TextBlock Grid.Row="1"
-                           Text="Subsection 2"
-                           Style="{StaticResource GoogleFontStyle}"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center" />
-
-                <TextBlock Grid.Row="2"
-                           Text="Subsection 3"
-                           Style="{StaticResource GoogleFontStyle}"
-                           HorizontalAlignment="Center"
+                           FontSize="22"
                            VerticalAlignment="Center" />
             </Grid>
         </Grid>
 
-        <!-- Section 2 & 4 -->
-        <TextBlock Grid.Column="1"
-                   Text="Section 2 &amp; 4"
-                   Style="{StaticResource GoogleFontStyle}"
-                   Background="#F5F5F5"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Padding="10" />
+        <Grid Grid.Column="1"
+              Background="#001d3d">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0"
+                  Grid.Column="1"
+                  Margin="20,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Label VerticalAlignment="Bottom"
+                           Margin="10,5,5,0">Voltage</Label>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <ComboBox x:Name="myComboBox"
+                              Width="200"
+                              Padding="10"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top">
+                        <ComboBoxItem Content="Option 1" />
+                        <ComboBoxItem Content="Option 2" />
+                        <ComboBoxItem Content="Option 3" />
+                    </ComboBox>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
