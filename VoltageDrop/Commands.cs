@@ -94,11 +94,16 @@ namespace VoltageDrop
       Application.ShowAlertDialog($"Voltage Drop: {voltageDrop:F2} volts ({voltageDropPercentage:F2}%)");
     }
 
-    [CommandMethod("MyWPFUserControl")]
-    public void ShowWPFUserControl()
+    [CommandMethod("WPF")]
+    public void WPF()
     {
       // Instantiate the Windows Form
-      VoltageDropForm myForm = new VoltageDropForm();
+      VoltageDropForm myForm = new VoltageDropForm
+      {
+        AutoScaleMode = AutoScaleMode.Dpi, // Set the AutoScaleMode to Dpi
+        FormBorderStyle = FormBorderStyle.FixedSingle, // Set the border style to prevent resizing
+        Size = new System.Drawing.Size(350, 700) // Set the desired form size
+      };
 
       // Instantiate the WPF UserControl
       VoltageDrop myWPFUserControl = new VoltageDrop();
