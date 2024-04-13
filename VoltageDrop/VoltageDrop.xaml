@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="1200"
-             d:DesignWidth="350"
+             d:DesignHeight="900"
+             d:DesignWidth="700"
              Background="#333333">
 
     <UserControl.Resources>
@@ -340,6 +340,8 @@
                                 Value="{StaticResource LabelBorder}" />
                         <Setter Property="FontFamily"
                                 Value="/Fonts/#Roboto Regular" />
+                        <Setter Property="Margin"
+                                Value="50, 0" />
                         <Setter Property="BorderThickness"
                                 Value="1" />
                         <Setter Property="Padding"
@@ -437,130 +439,162 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <Grid Height="100"
-              Margin="0,0,0,20">
-            <TextBlock Text="GMEP"
-                       FontSize="64"
+        <!-- Main Header -->
+        <TextBlock Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   Text="GMEP"
+                   FontSize="64"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Foreground="White"
+                   FontFamily="Fonts/#Roboto Regular"
+                   Margin="0,20,0,10" />
+
+        <!-- Inputs Column -->
+        <StackPanel Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="20,0,10,20">
+            <TextBlock Text="INPUTS"
+                       FontWeight="Bold"
+                       FontSize="32"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Bottom"
                        Foreground="White"
-                       FontFamily="Fonts/#Roboto Regular"></TextBlock>
-        </Grid>
+                       FontFamily="Fonts/#Roboto Regular"
+                       Margin="0,0,0,10" />
 
-        <Label Style="{StaticResource AutoCADLabel}"
-               Content="VOLTAGE"
-               HorizontalContentAlignment="Center" />
-        <ComboBox Style="{StaticResource AutoCADComboBox}">
-            <ComboBoxItem>120V</ComboBoxItem>
-            <ComboBoxItem>208V</ComboBoxItem>
-            <ComboBoxItem>240V</ComboBoxItem>
-            <ComboBoxItem>277V</ComboBoxItem>
-            <ComboBoxItem>480V</ComboBoxItem>
-        </ComboBox>
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="VOLTAGE"
+                   HorizontalContentAlignment="Center" />
+            <ComboBox Style="{StaticResource AutoCADComboBox}"
+                      SelectedIndex="1">
+                <ComboBoxItem>120V</ComboBoxItem>
+                <ComboBoxItem>208V</ComboBoxItem>
+                <ComboBoxItem>240V</ComboBoxItem>
+                <ComboBoxItem>277V</ComboBoxItem>
+                <ComboBoxItem>480V</ComboBoxItem>
+            </ComboBox>
 
-        <Label Style="{StaticResource AutoCADLabel}"
-               Content="PERCENTAGE"
-               HorizontalContentAlignment="Center" />
-        <ComboBox Style="{StaticResource AutoCADComboBox}">
-            <ComboBoxItem>1%</ComboBoxItem>
-            <ComboBoxItem>2%</ComboBoxItem>
-            <ComboBoxItem>3%</ComboBoxItem>
-            <ComboBoxItem>4%</ComboBoxItem>
-            <ComboBoxItem>5%</ComboBoxItem>
-        </ComboBox>
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="PERCENTAGE"
+                   HorizontalContentAlignment="Center" />
+            <ComboBox Style="{StaticResource AutoCADComboBox}"
+                      SelectedIndex="2">
+                <ComboBoxItem>1%</ComboBoxItem>
+                <ComboBoxItem>2%</ComboBoxItem>
+                <ComboBoxItem>3%</ComboBoxItem>
+                <ComboBoxItem>4%</ComboBoxItem>
+                <ComboBoxItem>5%</ComboBoxItem>
+            </ComboBox>
 
-        <Label Style="{StaticResource AutoCADLabel}"
-               Content="PHASE"
-               HorizontalContentAlignment="Center" />
-        <ComboBox Style="{StaticResource AutoCADComboBox}">
-            <ComboBoxItem>Single Phase</ComboBoxItem>
-            <ComboBoxItem>Three Phase</ComboBoxItem>
-        </ComboBox>
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="PHASE"
+                   HorizontalContentAlignment="Center" />
+            <ComboBox Style="{StaticResource AutoCADComboBox}"
+                      SelectedIndex="1">
+                <ComboBoxItem>Single Phase</ComboBoxItem>
+                <ComboBoxItem>Three Phase</ComboBoxItem>
+            </ComboBox>
 
-        <Label Style="{StaticResource AutoCADLabel}"
-               Content="WIRE TYPE"
-               HorizontalContentAlignment="Center" />
-        <ComboBox Style="{StaticResource AutoCADComboBox}">
-            <ComboBoxItem>Copper</ComboBoxItem>
-            <ComboBoxItem>Aluminum</ComboBoxItem>
-        </ComboBox>
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="WIRE TYPE"
+                   HorizontalContentAlignment="Center" />
+            <ComboBox Style="{StaticResource AutoCADComboBox}"
+                      SelectedIndex="0">
+                <ComboBoxItem>Copper</ComboBoxItem>
+                <ComboBoxItem>Aluminum</ComboBoxItem>
+            </ComboBox>
 
-        <Label Style="{StaticResource AutoCADLabel}"
-               Content="WIRE SIZE"
-               HorizontalContentAlignment="Center" />
-        <ComboBox Style="{StaticResource AutoCADComboBox}">
-            <ComboBoxItem>12</ComboBoxItem>
-            <ComboBoxItem>10</ComboBoxItem>
-            <ComboBoxItem>8</ComboBoxItem>
-            <ComboBoxItem>6</ComboBoxItem>
-            <ComboBoxItem>4</ComboBoxItem>
-            <ComboBoxItem>3</ComboBoxItem>
-            <ComboBoxItem>2</ComboBoxItem>
-            <ComboBoxItem>1</ComboBoxItem>
-            <ComboBoxItem>1/0</ComboBoxItem>
-            <ComboBoxItem>2/0</ComboBoxItem>
-            <ComboBoxItem>3/0</ComboBoxItem>
-            <ComboBoxItem>4/0</ComboBoxItem>
-            <ComboBoxItem>250</ComboBoxItem>
-            <ComboBoxItem>300</ComboBoxItem>
-            <ComboBoxItem>350</ComboBoxItem>
-            <ComboBoxItem>400</ComboBoxItem>
-            <ComboBoxItem>500</ComboBoxItem>
-            <ComboBoxItem>600</ComboBoxItem>
-            <ComboBoxItem>700</ComboBoxItem>
-            <ComboBoxItem>800</ComboBoxItem>
-            <ComboBoxItem>900</ComboBoxItem>
-            <ComboBoxItem>1000</ComboBoxItem>
-            <ComboBoxItem>1250</ComboBoxItem>
-            <ComboBoxItem>1500</ComboBoxItem>
-            <ComboBoxItem>1750</ComboBoxItem>
-            <ComboBoxItem>2000</ComboBoxItem>
-        </ComboBox>
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="WIRE SIZE"
+                   HorizontalContentAlignment="Center" />
+            <ComboBox Style="{StaticResource AutoCADComboBox}"
+                      SelectedIndex="10">
+                <ComboBoxItem>12</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>1/0</ComboBoxItem>
+                <ComboBoxItem>2/0</ComboBoxItem>
+                <ComboBoxItem>3/0</ComboBoxItem>
+                <ComboBoxItem>4/0</ComboBoxItem>
+                <ComboBoxItem>250</ComboBoxItem>
+                <ComboBoxItem>300</ComboBoxItem>
+                <ComboBoxItem>350</ComboBoxItem>
+                <ComboBoxItem>400</ComboBoxItem>
+                <ComboBoxItem>500</ComboBoxItem>
+                <ComboBoxItem>600</ComboBoxItem>
+                <ComboBoxItem>700</ComboBoxItem>
+                <ComboBoxItem>800</ComboBoxItem>
+                <ComboBoxItem>900</ComboBoxItem>
+                <ComboBoxItem>1000</ComboBoxItem>
+                <ComboBoxItem>1250</ComboBoxItem>
+                <ComboBoxItem>1500</ComboBoxItem>
+                <ComboBoxItem>1750</ComboBoxItem>
+                <ComboBoxItem>2000</ComboBoxItem>
+            </ComboBox>
 
-        <Label Style="{StaticResource AutoCADLabel}"
-               Content="LENGTH"
-               HorizontalContentAlignment="Center" />
-        <TextBox Style="{StaticResource AutoCADTextBox}" />
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="LENGTH"
+                   HorizontalContentAlignment="Center" />
+            <TextBox Style="{StaticResource AutoCADTextBox}"
+                     Text="100" />
 
-        <Label Style="{StaticResource AutoCADLabel}"
-               Content="AMPERAGE"
-               HorizontalContentAlignment="Center" />
-        <TextBox Style="{StaticResource AutoCADTextBox}" />
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="AMPERAGE"
+                   HorizontalContentAlignment="Center" />
+            <TextBox Style="{StaticResource AutoCADTextBox}"
+                     Text="200" />
 
-        <Label Style="{StaticResource AutoCADLabel}"
-               Content="NUMBER OF PARALLEL WIRES"
-               HorizontalContentAlignment="Center" />
-        <TextBox Style="{StaticResource AutoCADTextBox}" />
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="NUMBER OF PARALLEL WIRES"
+                   HorizontalContentAlignment="Center" />
+            <TextBox Style="{StaticResource AutoCADTextBox}"
+                     Text="1" />
+        </StackPanel>
 
-        <Grid Height="50"
-              Margin="0,0,0,20">
+        <!-- Results Column -->
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="10,0,20,20">
             <TextBlock Text="RESULTS"
                        FontWeight="Bold"
                        FontSize="32"
                        HorizontalAlignment="Center"
-                       VerticalAlignment="Bottom"
                        Foreground="White"
-                       FontFamily="Fonts/#Roboto Regular"></TextBlock>
-        </Grid>
+                       FontFamily="Fonts/#Roboto Regular"
+                       Margin="0,0,0,10" />
 
-        <Label Style="{StaticResource ResultLabel}"
-               Content="VOLTAGE DROP"
-               HorizontalContentAlignment="Center" />
-        <TextBox x:Name="VoltageDropTextBox"
-                 Style="{StaticResource ResultTextBox}" />
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="VOLTAGE DROP"
+                   HorizontalContentAlignment="Center" />
+            <TextBox x:Name="VoltageDropTextBox"
+                     Style="{StaticResource ResultTextBox}" />
 
-        <Label Style="{StaticResource ResultLabel}"
-               Content="VOLTAGE DROP PERCENTAGE"
-               HorizontalContentAlignment="Center" />
-        <TextBox x:Name="VoltageDropPercentageTextBox"
-                 Style="{StaticResource ResultTextBox}" />
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="VOLTAGE DROP PERCENTAGE"
+                   HorizontalContentAlignment="Center" />
+            <TextBox x:Name="VoltageDropPercentageTextBox"
+                     Style="{StaticResource ResultTextBox}" />
 
-        <Label Style="{StaticResource ResultLabel}"
-               Content="RECOMMENDED WIRE SIZE"
-               HorizontalContentAlignment="Center" />
-        <TextBox x:Name="RecommendedWireSizeTextBox"
-                 Style="{StaticResource ResultTextBox}" />
-    </StackPanel>
+            <Label Style="{StaticResource AutoCADLabel}"
+                   Content="RECOMMENDED WIRE SIZE"
+                   HorizontalContentAlignment="Center" />
+            <TextBox x:Name="RecommendedWireSizeTextBox"
+                     Style="{StaticResource ResultTextBox}" />
+        </StackPanel>
+    </Grid>
 </UserControl>
