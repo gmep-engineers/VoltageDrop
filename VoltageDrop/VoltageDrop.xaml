@@ -85,8 +85,6 @@
 
                     <Style x:Key="AutoCADComboBox"
                            TargetType="ComboBox">
-                        <Setter Property="Width"
-                                Value="150" />
                         <Setter Property="Background"
                                 Value="{StaticResource ComboBoxBackground}" />
                         <Setter Property="BorderBrush"
@@ -226,13 +224,58 @@
                         </Setter>
                     </Style>
                 </ResourceDictionary>
+                <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    <SolidColorBrush x:Key="LabelForeground"
+                                     Color="#FFFFFF" />
+                    <SolidColorBrush x:Key="LabelBackground"
+                                     Color="#3F3F3F" />
+                    <SolidColorBrush x:Key="LabelBorder"
+                                     Color="#1C1C1C" />
+
+                    <Style x:Key="AutoCADLabel"
+                           TargetType="Label">
+                        <Setter Property="Foreground"
+                                Value="{StaticResource LabelForeground}" />
+                        <Setter Property="Background"
+                                Value="{StaticResource LabelBackground}" />
+                        <Setter Property="BorderBrush"
+                                Value="{StaticResource LabelBorder}" />
+                        <Setter Property="BorderThickness"
+                                Value="1" />
+                        <Setter Property="Padding"
+                                Value="5" />
+                        <Setter Property="FontSize"
+                                Value="12" />
+                        <Setter Property="FontWeight"
+                                Value="Bold" />
+                        <Setter Property="HorizontalContentAlignment"
+                                Value="Left" />
+                        <Setter Property="VerticalContentAlignment"
+                                Value="Center" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Label">
+                                    <Border Background="{TemplateBinding Background}"
+                                            BorderBrush="{TemplateBinding BorderBrush}"
+                                            BorderThickness="{TemplateBinding BorderThickness}"
+                                            Padding="{TemplateBinding Padding}">
+                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
 
     <StackPanel>
 
-        <Grid Height="100">
+        <Grid Height="100"
+              Margin="0,0,0,20">
             <TextBlock Text="GMEP"
                        FontSize="64"
                        HorizontalAlignment="Center"
@@ -240,6 +283,9 @@
                        Foreground="White"></TextBlock>
         </Grid>
 
+        <Label Style="{StaticResource AutoCADLabel}"
+               Content="VOLTAGE"
+               HorizontalContentAlignment="Center" />
         <ComboBox Style="{StaticResource AutoCADComboBox}">
             <ComboBoxItem>120V</ComboBoxItem>
             <ComboBoxItem>208V</ComboBoxItem>
@@ -248,9 +294,63 @@
             <ComboBoxItem>480V</ComboBoxItem>
         </ComboBox>
 
-        <Button Content="Click Me"
-                Style="{StaticResource AutoCADButton}"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center" />
+        <Label Style="{StaticResource AutoCADLabel}"
+               Content="PERCENTAGE"
+               HorizontalContentAlignment="Center" />
+        <ComboBox Style="{StaticResource AutoCADComboBox}">
+            <ComboBoxItem>1%</ComboBoxItem>
+            <ComboBoxItem>2%</ComboBoxItem>
+            <ComboBoxItem>3%</ComboBoxItem>
+            <ComboBoxItem>4%</ComboBoxItem>
+            <ComboBoxItem>5%</ComboBoxItem>
+        </ComboBox>
+
+        <Label Style="{StaticResource AutoCADLabel}"
+               Content="PHASE"
+               HorizontalContentAlignment="Center" />
+        <ComboBox Style="{StaticResource AutoCADComboBox}">
+            <ComboBoxItem>Single Phase</ComboBoxItem>
+            <ComboBoxItem>Three Phase</ComboBoxItem>
+        </ComboBox>
+
+        <Label Style="{StaticResource AutoCADLabel}"
+               Content="WIRE TYPE"
+               HorizontalContentAlignment="Center" />
+        <ComboBox Style="{StaticResource AutoCADComboBox}">
+            <ComboBoxItem>Copper</ComboBoxItem>
+            <ComboBoxItem>Aluminum</ComboBoxItem>
+        </ComboBox>
+
+        <Label Style="{StaticResource AutoCADLabel}"
+               Content="WIRE SIZE"
+               HorizontalContentAlignment="Center" />
+        <ComboBox Style="{StaticResource AutoCADComboBox}">
+            <ComboBoxItem>12</ComboBoxItem>
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>8</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
+            <ComboBoxItem>4</ComboBoxItem>
+            <ComboBoxItem>3</ComboBoxItem>
+            <ComboBoxItem>2</ComboBoxItem>
+            <ComboBoxItem>1</ComboBoxItem>
+            <ComboBoxItem>1/0</ComboBoxItem>
+            <ComboBoxItem>2/0</ComboBoxItem>
+            <ComboBoxItem>3/0</ComboBoxItem>
+            <ComboBoxItem>4/0</ComboBoxItem>
+            <ComboBoxItem>250</ComboBoxItem>
+            <ComboBoxItem>300</ComboBoxItem>
+            <ComboBoxItem>350</ComboBoxItem>
+            <ComboBoxItem>400</ComboBoxItem>
+            <ComboBoxItem>500</ComboBoxItem>
+            <ComboBoxItem>600</ComboBoxItem>
+            <ComboBoxItem>700</ComboBoxItem>
+            <ComboBoxItem>800</ComboBoxItem>
+            <ComboBoxItem>900</ComboBoxItem>
+            <ComboBoxItem>1000</ComboBoxItem>
+            <ComboBoxItem>1250</ComboBoxItem>
+            <ComboBoxItem>1500</ComboBoxItem>
+            <ComboBoxItem>1750</ComboBoxItem>
+            <ComboBoxItem>2000</ComboBoxItem>
+        </ComboBox>
     </StackPanel>
 </UserControl>
