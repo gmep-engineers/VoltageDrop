@@ -123,18 +123,8 @@
       <DependentUpon>VoltageDropForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="Fonts\Roboto-Black.ttf" />
-    <None Include="Fonts\Roboto-BlackItalic.ttf" />
-    <None Include="Fonts\Roboto-Bold.ttf" />
-    <None Include="Fonts\Roboto-BoldItalic.ttf" />
-    <None Include="Fonts\Roboto-Italic.ttf" />
-    <None Include="Fonts\Roboto-Light.ttf" />
-    <None Include="Fonts\Roboto-LightItalic.ttf" />
-    <None Include="Fonts\Roboto-Medium.ttf" />
-    <None Include="Fonts\Roboto-MediumItalic.ttf" />
     <EmbeddedResource Include="Fonts\Roboto-Regular.ttf" />
-    <None Include="Fonts\Roboto-Thin.ttf" />
-    <None Include="Fonts\Roboto-ThinItalic.ttf" />
+    <None Include="Fonts\FiraSans-Regular.ttf" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

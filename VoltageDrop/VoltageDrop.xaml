@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d"
-             d:DesignHeight="900"
+             d:DesignHeight="720"
              d:DesignWidth="700"
              Background="#333333">
 
@@ -15,55 +15,13 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-                    <SolidColorBrush x:Key="ResultLabelForeground"
-                                     Color="#FFFFFF" />
-                    <SolidColorBrush x:Key="ResultLabelBackground"
-                                     Color="#3F3F3F" />
-                    <SolidColorBrush x:Key="ResultLabelBorder"
-                                     Color="#1C1C1C" />
+
                     <SolidColorBrush x:Key="ResultTextBoxBackground"
                                      Color="#333333" />
                     <SolidColorBrush x:Key="ResultTextBoxBorder"
                                      Color="#555555" />
                     <SolidColorBrush x:Key="ResultTextBoxForeground"
                                      Color="#FFFFFF" />
-
-                    <Style x:Key="ResultLabel"
-                           TargetType="Label">
-                        <Setter Property="Foreground"
-                                Value="{StaticResource ResultLabelForeground}" />
-                        <Setter Property="Background"
-                                Value="{StaticResource ResultLabelBackground}" />
-                        <Setter Property="BorderBrush"
-                                Value="{StaticResource ResultLabelBorder}" />
-                        <Setter Property="FontFamily"
-                                Value="/Fonts/#Roboto Regular" />
-                        <Setter Property="BorderThickness"
-                                Value="1" />
-                        <Setter Property="Padding"
-                                Value="5" />
-                        <Setter Property="FontSize"
-                                Value="12" />
-                        <Setter Property="FontWeight"
-                                Value="Bold" />
-                        <Setter Property="HorizontalContentAlignment"
-                                Value="Left" />
-                        <Setter Property="VerticalContentAlignment"
-                                Value="Center" />
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="Label">
-                                    <Border Background="{TemplateBinding Background}"
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            Padding="{TemplateBinding Padding}">
-                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
 
                     <Style x:Key="ResultTextBox"
                            TargetType="TextBox">
@@ -74,13 +32,13 @@
                         <Setter Property="Foreground"
                                 Value="{StaticResource ResultTextBoxForeground}" />
                         <Setter Property="FontFamily"
-                                Value="/Fonts/#Roboto Regular" />
+                                Value="/Fonts/#FiraSans Regular" />
                         <Setter Property="BorderThickness"
                                 Value="1" />
                         <Setter Property="Padding"
                                 Value="5" />
                         <Setter Property="Margin"
-                                Value="10" />
+                                Value="0,0,0,10" />
                         <Setter Property="FontSize"
                                 Value="14" />
                         <Setter Property="IsReadOnly"
@@ -107,9 +65,9 @@
                 <ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
                     <SolidColorBrush x:Key="ButtonBackground"
-                                     Color="#8B0000" />
+                                     Color="#FF144984" />
                     <SolidColorBrush x:Key="ButtonBackgroundHover"
-                                     Color="#B22222" />
+                                     Color="#FF2266B2" />
                     <SolidColorBrush x:Key="ButtonForeground"
                                      Color="#FFFFFF" />
                     <SolidColorBrush x:Key="ButtonBorder"
@@ -124,22 +82,27 @@
                         <Setter Property="BorderBrush"
                                 Value="{StaticResource ButtonBorder}" />
                         <Setter Property="FontFamily"
-                                Value="/Fonts/#Roboto Regular" />
+                                Value="/Fonts/#FiraSans Regular" />
                         <Setter Property="BorderThickness"
                                 Value="1" />
                         <Setter Property="Padding"
                                 Value="20,10" />
+                        <Setter Property="Margin"
+                                Value="0,10" />
                         <Setter Property="FontSize"
                                 Value="14" />
                         <Setter Property="FontWeight"
                                 Value="Bold" />
+                        <Setter Property="HorizontalAlignment"
+                                Value="Center" />
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="Button">
                                     <Border Background="{TemplateBinding Background}"
                                             BorderBrush="{TemplateBinding BorderBrush}"
                                             BorderThickness="{TemplateBinding BorderThickness}"
-                                            Padding="{TemplateBinding Padding}">
+                                            Padding="{TemplateBinding Padding}"
+                                            CornerRadius="10">
                                         <ContentPresenter HorizontalAlignment="Center"
                                                           VerticalAlignment="Center" />
                                     </Border>
@@ -187,13 +150,13 @@
                         <Setter Property="Foreground"
                                 Value="{StaticResource ComboBoxForeground}" />
                         <Setter Property="FontFamily"
-                                Value="/Fonts/#Roboto Regular" />
+                                Value="/Fonts/#FiraSans Regular" />
                         <Setter Property="BorderThickness"
                                 Value="1" />
                         <Setter Property="Padding"
                                 Value="15" />
                         <Setter Property="Margin"
-                                Value="10" />
+                                Value="0,0,0,10" />
                         <Setter Property="FontSize"
                                 Value="14" />
                         <Setter Property="Template">
@@ -334,12 +297,8 @@
                            TargetType="Label">
                         <Setter Property="Foreground"
                                 Value="{StaticResource LabelForeground}" />
-                        <Setter Property="Background"
-                                Value="{StaticResource LabelBackground}" />
-                        <Setter Property="BorderBrush"
-                                Value="{StaticResource LabelBorder}" />
                         <Setter Property="FontFamily"
-                                Value="/Fonts/#Roboto Regular" />
+                                Value="/Fonts/#FiraSans Regular" />
                         <Setter Property="Margin"
                                 Value="50, 0" />
                         <Setter Property="BorderThickness"
@@ -382,7 +341,7 @@
                     <SolidColorBrush x:Key="TextBoxMouseOverBorder"
                                      Color="#777777" />
                     <SolidColorBrush x:Key="TextBoxFocusedBorder"
-                                     Color="#FF0000" />
+                                     Color="#FF144984" />
 
                     <Style x:Key="AutoCADTextBox"
                            TargetType="TextBox">
@@ -393,13 +352,13 @@
                         <Setter Property="Foreground"
                                 Value="{StaticResource TextBoxForeground}" />
                         <Setter Property="FontFamily"
-                                Value="/Fonts/#Roboto Regular" />
+                                Value="/Fonts/#FiraSans Regular" />
                         <Setter Property="BorderThickness"
                                 Value="1" />
                         <Setter Property="Padding"
                                 Value="5" />
                         <Setter Property="Margin"
-                                Value="10" />
+                                Value="0,0,0,10" />
                         <Setter Property="FontSize"
                                 Value="14" />
                         <Setter Property="VerticalContentAlignment"
@@ -457,22 +416,16 @@
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
                    Foreground="White"
-                   FontFamily="Fonts/#Roboto Regular"
+                   FontFamily="Fonts/#FiraSans Regular"
                    Margin="0,20,0,10" />
 
         <!-- Inputs Column -->
         <StackPanel Grid.Row="1"
                     Grid.Column="0"
                     Margin="20,0,10,20">
-            <TextBlock Text="INPUTS"
-                       FontSize="32"
-                       HorizontalAlignment="Center"
-                       Foreground="White"
-                       FontFamily="Fonts/#Roboto Regular"
-                       Margin="0,0,0,10" />
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="VOLTAGE"
+                   Content="Voltage"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
                       x:Name="VoltageComboBox"
@@ -485,7 +438,7 @@
             </ComboBox>
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="PERCENTAGE"
+                   Content="Percentage"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
                       x:Name="PercentageComboBox"
@@ -498,7 +451,7 @@
             </ComboBox>
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="PHASE"
+                   Content="Phase"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
                       x:Name="PhaseComboBox"
@@ -508,7 +461,7 @@
             </ComboBox>
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="WIRE TYPE"
+                   Content="Wire Type"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
                       x:Name="WireTypeComboBox"
@@ -518,7 +471,7 @@
             </ComboBox>
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="WIRE SIZE"
+                   Content="Wire Size"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
                       x:Name="WireSizeComboBox"
@@ -552,21 +505,21 @@
             </ComboBox>
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="LENGTH"
+                   Content="Length"
                    HorizontalContentAlignment="Center" />
             <TextBox Style="{StaticResource AutoCADTextBox}"
                      x:Name="LengthTextBox"
                      TextChanged="LengthTextBox_TextChanged" />
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="AMPERAGE"
+                   Content="Amperage"
                    HorizontalContentAlignment="Center" />
             <TextBox Style="{StaticResource AutoCADTextBox}"
                      x:Name="AmperageTextBox"
                      TextChanged="AmperageTextBox_TextChanged" />
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="NUMBER OF PARALLEL WIRES"
+                   Content="Number of Parallel Wires"
                    HorizontalContentAlignment="Center" />
             <TextBox Style="{StaticResource AutoCADTextBox}"
                      x:Name="ParallelWiresTextBox"
@@ -574,41 +527,35 @@
 
             <Button x:Name="InputWire"
                     Style="{StaticResource AutoCADButton}"
-                    Content="CREATE INPUT WIRE" />
+                    Content="Create Input Wire" />
         </StackPanel>
 
         <!-- Results Column -->
         <StackPanel Grid.Row="1"
                     Grid.Column="1"
                     Margin="10,0,20,20">
-            <TextBlock Text="RESULTS"
-                       FontSize="32"
-                       HorizontalAlignment="Center"
-                       Foreground="White"
-                       FontFamily="Fonts/#Roboto Regular"
-                       Margin="0,0,0,10" />
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="VOLTAGE DROP"
+                   Content="Voltage Drop"
                    HorizontalContentAlignment="Center" />
             <TextBox x:Name="VoltageDropTextBox"
                      Style="{StaticResource ResultTextBox}" />
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="VOLTAGE DROP PERCENTAGE"
+                   Content="Voltage Drop Percentage"
                    HorizontalContentAlignment="Center" />
             <TextBox x:Name="VoltageDropPercentageTextBox"
                      Style="{StaticResource ResultTextBox}" />
 
             <Label Style="{StaticResource AutoCADLabel}"
-                   Content="RECOMMENDED WIRE SIZE"
+                   Content="Recommended Wire Size"
                    HorizontalContentAlignment="Center" />
             <TextBox x:Name="RecommendedWireSizeTextBox"
                      Style="{StaticResource ResultTextBox}" />
 
             <Button x:Name="RecommendedWire"
                     Style="{StaticResource AutoCADButton}"
-                    Content="CREATE RECOMMENDED WIRE" />
+                    Content="Create Recommended Wire" />
         </StackPanel>
     </Grid>
 </UserControl>

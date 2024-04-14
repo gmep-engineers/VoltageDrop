@@ -20,7 +20,7 @@ namespace VoltageDrop
       {
         AutoScaleMode = AutoScaleMode.Dpi, // Set the AutoScaleMode to Dpi
         FormBorderStyle = FormBorderStyle.FixedSingle, // Set the border style to prevent resizing
-        Size = new System.Drawing.Size(700, 900) // Set the desired form size
+        Size = new System.Drawing.Size(700, 755) // Set the desired form size
       };
 
       // Instantiate the WPF UserControl
