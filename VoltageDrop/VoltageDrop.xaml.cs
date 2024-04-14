@@ -42,7 +42,7 @@ namespace VoltageDrop
 
       // Get selected percentage
       if (PercentageComboBox.SelectedItem == null) return;
-      double percentage = double.Parse(((ComboBoxItem)PercentageComboBox.SelectedItem).Content.ToString().Replace("%", "")) / 100;
+      double percentage = double.Parse(((ComboBoxItem)PercentageComboBox.SelectedItem).Content.ToString().Replace("%", ""));
 
       // Get selected phase
       if (PhaseComboBox.SelectedItem == null) return;
@@ -89,9 +89,24 @@ namespace VoltageDrop
       VoltageDropTextBox.Text = $"{voltageDrop:F2}V";
       VoltageDropPercentageTextBox.Text = $"{voltageDropPercentage:F2}%";
 
+      // Update the background color of VoltageDropPercentageTextBox
+      UpdateVoltageDropPercentageBackground(voltageDropPercentage, percentage);
+
       // Calculate recommended wire size
       string recommendedWireSize = GetRecommendedWireSize(amperage);
       RecommendedWireSizeTextBox.Text = recommendedWireSize;
+    }
+
+    private void UpdateVoltageDropPercentageBackground(double voltageDropPercentage, double userSelectedPercentage)
+    {
+      if (voltageDropPercentage > userSelectedPercentage)
+      {
+        VoltageDropPercentageTextBox.Background = new SolidColorBrush(Colors.Red);
+      }
+      else
+      {
+        VoltageDropPercentageTextBox.Background = new SolidColorBrush(Colors.Green);
+      }
     }
 
     private string GetRecommendedWireSize(double amperage)
@@ -123,10 +138,6 @@ namespace VoltageDrop
       double resistance = GetResistance(wireType, wireSize);
       double voltageDrop = CalculateVoltageDrop(phase, resistance, lengthOfWire, amperagePerWire, 1);
       double voltageDropPercentage = (voltageDrop / voltage) * 100;
-
-      var ed = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument.Editor;
-      ed.WriteMessage($"\nActual Voltage Drop Percentage:{voltageDropPercentage:F2}");
-      ed.WriteMessage($"\nUser Limit Percentage: {percentage:F2}");
 
       while (voltageDropPercentage > percentage)
       {

@@ -465,7 +465,6 @@
                     Grid.Column="0"
                     Margin="20,0,10,20">
             <TextBlock Text="INPUTS"
-                       FontWeight="Bold"
                        FontSize="32"
                        HorizontalAlignment="Center"
                        Foreground="White"
@@ -572,6 +571,10 @@
             <TextBox Style="{StaticResource AutoCADTextBox}"
                      x:Name="ParallelWiresTextBox"
                      TextChanged="ParallelWiresTextBox_TextChanged" />
+
+            <Button x:Name="InputWire"
+                    Style="{StaticResource AutoCADButton}"
+                    Content="CREATE INPUT WIRE" />
         </StackPanel>
 
         <!-- Results Column -->
@@ -579,7 +582,6 @@
                     Grid.Column="1"
                     Margin="10,0,20,20">
             <TextBlock Text="RESULTS"
-                       FontWeight="Bold"
                        FontSize="32"
                        HorizontalAlignment="Center"
                        Foreground="White"
@@ -603,6 +605,10 @@
                    HorizontalContentAlignment="Center" />
             <TextBox x:Name="RecommendedWireSizeTextBox"
                      Style="{StaticResource ResultTextBox}" />
+
+            <Button x:Name="RecommendedWire"
+                    Style="{StaticResource AutoCADButton}"
+                    Content="CREATE RECOMMENDED WIRE" />
         </StackPanel>
     </Grid>
 </UserControl>
