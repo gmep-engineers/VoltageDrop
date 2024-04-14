@@ -476,7 +476,8 @@
                    Content="VOLTAGE"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
-                      SelectedIndex="1">
+                      x:Name="VoltageComboBox"
+                      SelectionChanged="VoltageComboBox_SelectionChanged">
                 <ComboBoxItem>120V</ComboBoxItem>
                 <ComboBoxItem>208V</ComboBoxItem>
                 <ComboBoxItem>240V</ComboBoxItem>
@@ -488,7 +489,8 @@
                    Content="PERCENTAGE"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
-                      SelectedIndex="2">
+                      x:Name="PercentageComboBox"
+                      SelectionChanged="PercentageComboBox_SelectionChanged">
                 <ComboBoxItem>1%</ComboBoxItem>
                 <ComboBoxItem>2%</ComboBoxItem>
                 <ComboBoxItem>3%</ComboBoxItem>
@@ -500,7 +502,8 @@
                    Content="PHASE"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
-                      SelectedIndex="1">
+                      x:Name="PhaseComboBox"
+                      SelectionChanged="PhaseComboBox_SelectionChanged">
                 <ComboBoxItem>Single Phase</ComboBoxItem>
                 <ComboBoxItem>Three Phase</ComboBoxItem>
             </ComboBox>
@@ -509,7 +512,8 @@
                    Content="WIRE TYPE"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
-                      SelectedIndex="0">
+                      x:Name="WireTypeComboBox"
+                      SelectionChanged="WireTypeComboBox_SelectionChanged">
                 <ComboBoxItem>Copper</ComboBoxItem>
                 <ComboBoxItem>Aluminum</ComboBoxItem>
             </ComboBox>
@@ -518,7 +522,8 @@
                    Content="WIRE SIZE"
                    HorizontalContentAlignment="Center" />
             <ComboBox Style="{StaticResource AutoCADComboBox}"
-                      SelectedIndex="10">
+                      x:Name="WireSizeComboBox"
+                      SelectionChanged="WireSizeComboBox_SelectionChanged">
                 <ComboBoxItem>12</ComboBoxItem>
                 <ComboBoxItem>10</ComboBoxItem>
                 <ComboBoxItem>8</ComboBoxItem>
@@ -551,19 +556,22 @@
                    Content="LENGTH"
                    HorizontalContentAlignment="Center" />
             <TextBox Style="{StaticResource AutoCADTextBox}"
-                     Text="100" />
+                     x:Name="LengthTextBox"
+                     TextChanged="LengthTextBox_TextChanged" />
 
             <Label Style="{StaticResource AutoCADLabel}"
                    Content="AMPERAGE"
                    HorizontalContentAlignment="Center" />
             <TextBox Style="{StaticResource AutoCADTextBox}"
-                     Text="200" />
+                     x:Name="AmperageTextBox"
+                     TextChanged="AmperageTextBox_TextChanged" />
 
             <Label Style="{StaticResource AutoCADLabel}"
                    Content="NUMBER OF PARALLEL WIRES"
                    HorizontalContentAlignment="Center" />
             <TextBox Style="{StaticResource AutoCADTextBox}"
-                     Text="1" />
+                     x:Name="ParallelWiresTextBox"
+                     TextChanged="ParallelWiresTextBox_TextChanged" />
         </StackPanel>
 
         <!-- Results Column -->
