@@ -12,8 +12,8 @@ namespace VoltageDrop
 {
   public class Commands
   {
-    [CommandMethod("WPF")]
-    public void WPF()
+    [CommandMethod("VD")]
+    public void VD()
     {
       // Instantiate the Windows Form
       VoltageDropForm myForm = new VoltageDropForm
@@ -37,7 +37,7 @@ namespace VoltageDrop
       myForm.Controls.Add(host);
 
       // Show the form
-      Application.ShowModalDialog(myForm);
+      Application.ShowModelessDialog(myForm);
     }
   }
 }
