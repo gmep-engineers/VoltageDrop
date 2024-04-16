@@ -17,20 +17,8 @@ using UserControl = System.Windows.Controls.UserControl;
 
 namespace VoltageDrop
 {
-  /// <summary>
-  /// Interaction logic for WPFControl.xaml
-  /// </summary>
   public partial class WPFControl : UserControl
   {
-    public string MyText
-    {
-      get { return (string)GetValue(MyTextProperty); }
-      set { SetValue(MyTextProperty, value); }
-    }
-
-    public static readonly DependencyProperty MyTextProperty =
-        DependencyProperty.Register("MyText", typeof(string), typeof(WPFControl), new PropertyMetadata(string.Empty));
-
     public WPFControl()
     {
       InitializeComponent();
