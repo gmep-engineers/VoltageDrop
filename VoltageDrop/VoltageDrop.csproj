@@ -117,6 +117,11 @@
     <Compile Include="VoltageDropForm.Designer.cs">
       <DependentUpon>VoltageDropForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WPFControl.xaml.cs">
+      <DependentUpon>WPFControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WPFModel.cs" />
+    <Compile Include="WPFViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="VoltageDropForm.resx">
@@ -129,6 +134,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="VoltageDrop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WPFControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

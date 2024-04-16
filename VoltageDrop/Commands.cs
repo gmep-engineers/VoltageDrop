@@ -1,9 +1,5 @@
 ﻿using Autodesk.AutoCAD.Runtime;
-using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using Autodesk.AutoCAD.Windows;
 using System.Windows.Forms;
 using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 using System.Windows.Forms.Integration;
@@ -38,6 +34,38 @@ namespace VoltageDrop
 
       // Show the form
       Application.ShowModelessDialog(myForm);
+    }
+
+    [CommandMethod("WPF")]
+    public void WPF()
+    {
+      // Create a new instance of the WPFControl
+      WPFControl myWPFControl = new WPFControl();
+
+      // Create a new Windows Form to host the WPFControl
+      Form hostForm = new Form
+      {
+        Text = "WPF User Control",
+        FormBorderStyle = FormBorderStyle.FixedSingle,
+        MinimizeBox = false,
+        MaximizeBox = false,
+        StartPosition = FormStartPosition.CenterScreen,
+        Width = 800,
+        Height = 600
+      };
+
+      // Create an ElementHost to host the WPFControl
+      ElementHost elementHost = new ElementHost
+      {
+        Dock = DockStyle.Fill,
+        Child = myWPFControl
+      };
+
+      // Add the ElementHost to the form's controls collection
+      hostForm.Controls.Add(elementHost);
+
+      // Show the form as a modeless dialog
+      Application.ShowModelessDialog(hostForm);
     }
   }
 }
