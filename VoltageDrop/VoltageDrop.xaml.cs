@@ -61,6 +61,12 @@ namespace VoltageDrop
       if (!double.TryParse(LengthTextBox.Text, out double lengthOfWire))
       {
         MessageBox.Show("Invalid length of wire. Please enter a valid number.");
+        int caretIndex = LengthTextBox.CaretIndex;
+        if (caretIndex > 0)
+        {
+          LengthTextBox.Text = LengthTextBox.Text.Remove(caretIndex - 1, 1);
+          LengthTextBox.CaretIndex = caretIndex - 1;
+        }
         return;
       }
 
@@ -69,6 +75,12 @@ namespace VoltageDrop
       if (!double.TryParse(AmperageTextBox.Text, out double amperage))
       {
         MessageBox.Show("Invalid amperage. Please enter a valid number.");
+        int caretIndex = AmperageTextBox.CaretIndex;
+        if (caretIndex > 0)
+        {
+          AmperageTextBox.Text = AmperageTextBox.Text.Remove(caretIndex - 1, 1);
+          AmperageTextBox.CaretIndex = caretIndex - 1;
+        }
         return;
       }
 
@@ -77,6 +89,12 @@ namespace VoltageDrop
       if (!int.TryParse(ParallelWiresTextBox.Text, out int numParallelWires))
       {
         MessageBox.Show("Invalid number of parallel wires. Please enter a valid integer.");
+        int caretIndex = ParallelWiresTextBox.CaretIndex;
+        if (caretIndex > 0)
+        {
+          ParallelWiresTextBox.Text = ParallelWiresTextBox.Text.Remove(caretIndex - 1, 1);
+          ParallelWiresTextBox.CaretIndex = caretIndex - 1;
+        }
         return;
       }
 
