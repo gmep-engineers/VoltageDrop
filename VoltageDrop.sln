@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoltageDrop", "VoltageDrop\VoltageDrop.csproj", "{4BB3544E-CE0C-4FF3-BBCC-7621883B520A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFTests", "WPFTests\WPFTests.csproj", "{27480D40-93B8-4FF6-A59E-09168DB7F487}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{4BB3544E-CE0C-4FF3-BBCC-7621883B520A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4BB3544E-CE0C-4FF3-BBCC-7621883B520A}.Release|x64.ActiveCfg = Release|x64
 		{4BB3544E-CE0C-4FF3-BBCC-7621883B520A}.Release|x64.Build.0 = Release|x64
+		{27480D40-93B8-4FF6-A59E-09168DB7F487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27480D40-93B8-4FF6-A59E-09168DB7F487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27480D40-93B8-4FF6-A59E-09168DB7F487}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{27480D40-93B8-4FF6-A59E-09168DB7F487}.Debug|x64.Build.0 = Debug|Any CPU
+		{27480D40-93B8-4FF6-A59E-09168DB7F487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27480D40-93B8-4FF6-A59E-09168DB7F487}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27480D40-93B8-4FF6-A59E-09168DB7F487}.Release|x64.ActiveCfg = Release|Any CPU
+		{27480D40-93B8-4FF6-A59E-09168DB7F487}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

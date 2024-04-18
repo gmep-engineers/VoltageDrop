@@ -157,30 +157,7 @@ namespace VoltageDrop
         return wireSize;
     }
 
-    private void UpdateRecommendedWireSize(string recommendedWireSize)
-    {
-      string wireSize;
-      int numParallelWires;
-
-      if (recommendedWireSize.Contains("x"))
-      {
-        string[] parts = recommendedWireSize.Split('x');
-        numParallelWires = int.Parse(parts[0].Trim());
-        wireSize = parts[1].Trim();
-      }
-      else
-      {
-        numParallelWires = 1;
-        wireSize = recommendedWireSize.Trim();
-      }
-
-      WireSizeComboBox.SelectedItem = WireSizeComboBox.Items.Cast<ComboBoxItem>()
-          .FirstOrDefault(item => item.Content.ToString() == wireSize);
-
-      ParallelWiresTextBox.Text = numParallelWires.ToString();
-    }
-
-    private string GetNextWireSize(string wireSize)
+    private static string GetNextWireSize(string wireSize)
     {
       string[] wireSizes = { "12", "10", "8", "6", "4", "3", "2", "1", "1/0", "2/0", "3/0", "4/0", "250", "300", "350", "400", "500", "600", "700", "750", "800", "900", "1000", "1250", "1500", "1750", "2000" };
 
@@ -191,7 +168,7 @@ namespace VoltageDrop
       return wireSizes[index + 1];
     }
 
-    private double GetResistance(string wireType, string sizeOfWire)
+    public static double GetResistance(string wireType, string sizeOfWire)
     {
       double resistance = 0.0;
 
@@ -324,7 +301,7 @@ namespace VoltageDrop
       return resistance;
     }
 
-    private double CalculateVoltageDrop(string phase, double resistance, double lengthOfWire, double amperage, int numParallelWires)
+    private static double CalculateVoltageDrop(string phase, double resistance, double lengthOfWire, double amperage, int numParallelWires)
     {
       double voltageDrop;
 
@@ -344,7 +321,7 @@ namespace VoltageDrop
       return voltageDrop;
     }
 
-    private string GetWireSize(double amperage)
+    private static string GetWireSize(double amperage)
     {
       switch (amperage)
       {

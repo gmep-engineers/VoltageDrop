@@ -11,7 +11,11 @@
 
     <Grid>
         <StackPanel>
-            <TextBox Text="{Binding MyText, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Text="{Binding MyText, UpdateSourceTrigger=PropertyChanged}">
+                <TextBox.InputBindings>
+                    <KeyBinding Command="{Binding TextChangedCommand}" />
+                </TextBox.InputBindings>
+            </TextBox>
             <TextBlock Text="{Binding MyText}" />
         </StackPanel>
     </Grid>
